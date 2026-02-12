@@ -1,0 +1,47 @@
+= Lights Out Requirements
+
+
+== Game Overview
+
+Lights Out is a puzzle game where players toggle lights on a grid to turn them all off.
+
+== Functional Requirements
+
+=== Grid and Lights
+* Display a grid of lights (typically 5x5)
+* Each light can be in one of two states: on or off
+* Lights are visually distinguished by color or brightness
+
+=== Game Mechanics
+* Clicking a light toggles it and its adjacent neighbors (up, down, left, right)
+* Diagonal neighbors are not affected
+* Toggling wraps around grid edges or stops at boundaries
+* Game detects when all lights are off (win condition)
+
+=== User Interface
+* Display current grid state
+* Show clickable light buttons
+* Display move counter
+* Show win message when puzzle is solved
+* Provide reset/new game button
+
+=== Game Content
+* Generate random starting configurations
+* Provide predefined puzzle levels with varying difficulty
+* Store player progress and high scores
+
+== Non-Functional Requirements
+
+=== Performance
+* Respond to light toggles instantly
+* Render grid smoothly on target platforms
+
+=== Usability
+* Intuitive click-to-toggle interaction
+* Clear visual feedback on light state changes
+* Accessible color schemes for color-blind players
+
+=== Maintainability
+* Clean separation between game logic and UI
+* Well-documented code structure
+
