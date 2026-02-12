@@ -1,0 +1,39 @@
+= Tic Tac Toe
+
+== Overview
+A two-player game where players take turns marking spaces on a 3x3 grid with X or O, aiming to get three of their marks in a row (horizontally, vertically, or diagonally).
+
+== Functional Requirements
+
+=== Game Setup
+* Initialize an empty 3x3 grid
+* Allow two players to join the game
+* Assign one player as X and the other as O
+* Display the current game board state
+
+=== Gameplay
+* Players alternate turns, starting with X
+* Each player can place their mark on any empty cell
+* Prevent players from overwriting existing marks
+* Display the board after each move
+
+=== Win Conditions
+* A player wins by getting three marks in a row (horizontal, vertical, or diagonal)
+* Display win message with the winning player
+* End the game upon a win
+
+=== Draw Condition
+* If all nine cells are filled without a winner, declare the game a draw
+* End the game
+
+=== Game Controls
+* Allow players to quit or restart the game
+* Validate all user inputs
+
+== Non-Functional Requirements
+* Game should be responsive and provide immediate feedback
+* Clear and intuitive user interface
+* Game state should persist during a session
+
+
+
