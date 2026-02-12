@@ -1,0 +1,43 @@
+= Snake Requirements
+
+== Functional Requirements
+
+=== Game Board
+* Display a 20x20 grid game area
+* Render the snake as a series of connected segments
+* Display food items at random positions
+* Show the current score and high score
+
+=== Snake Mechanics
+* Snake moves continuously in the current direction
+* Player can change direction using arrow keys or WASD
+* Snake cannot reverse into itself
+* Snake grows by one segment when consuming food
+* Game ends when snake collides with walls or itself
+
+=== Food System
+* Food appears at random valid positions
+* Each food consumed increases score by 10 points
+* New food spawns immediately after consumption
+
+=== Game States
+* Start screen with instructions
+* Active gameplay
+* Pause functionality
+* Game over screen with final score
+* Restart capability
+
+=== Difficulty Progression
+* Snake speed increases every 5 foods consumed
+* Maximum speed cap to maintain playability
+
+== Non-Functional Requirements
+
+* Game runs at 60 FPS
+* Responsive input handling with minimal latency
+* Smooth animation transitions
+* Persist high score to local storage
+* Cross-platform compatibility
+
+
+
