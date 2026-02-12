@@ -1,0 +1,13 @@
+= zig
+:toc:
+:sectnums:
+ifndef::env-github[:icons: font]
+:note-caption: :paperclip:
+:important-caption: :exclamation:
+:warning-caption: :warning:
+
+== zig
+
+https://ziglang.org/
+
+https://codeberg.org/ziglang/zig
