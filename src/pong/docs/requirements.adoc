@@ -1,0 +1,44 @@
+= Pong
+
+
+
+== Functional Requirements
+
+=== Game Setup
+* Display a centered court with two paddles (one on each side)
+* Initialize ball at center of court
+* Display score for each player
+
+=== Gameplay
+* Ball moves continuously across the court
+* Ball bounces off top and bottom walls
+* Ball bounces off paddles when contacted
+* Paddles move vertically in response to player input
+* Paddles cannot move beyond court boundaries
+* Score increments when ball passes opponent's paddle
+
+=== Game States
+* Ready state before game starts
+* Active state during gameplay
+* Win condition when a player reaches target score
+
+=== Controls
+* Player 1: Up/Down keys to move paddle
+* Player 2: W/S keys to move paddle
+* Pause/Resume functionality
+* Exit/Restart game options
+
+== Non-Functional Requirements
+
+=== Performance
+* Consistent frame rate (60+ FPS)
+* Minimal input latency
+
+=== Usability
+* Clear visual feedback for ball and paddle positions
+* Visible score display
+* Intuitive control scheme
+
+=== Graphics
+* Simple 2D rendering
+* Clear contrast between game elements and background
