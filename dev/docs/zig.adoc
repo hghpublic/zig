@@ -1,0 +1,25 @@
+= zig
+:toc:
+:sectnums:
+ifndef::env-github[:icons: font]
+:note-caption: :paperclip:
+:important-caption: :exclamation:
+:warning-caption: :warning:
+
+== zig
+
+https://ziglang.org/
+
+=== Installing Zig
+
+https://ziglang.org/download/
+
+[source, shell]
+----
+❯ uname -a
+Linux 3b9956a8faf1 6.12.67-linuxkit #1 SMP Mon Jan 26 23:07:00 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
+
+❯ curl -O https://ziglang.org/builds/zig-aarch64-linux-0.16.0-dev.2535+b5bd49460.tar.xz
+
+tar -xJf zig-aarch64-linux-0.16.0-dev.2535+b5bd49460.tar.xz
+----

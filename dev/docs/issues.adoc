@@ -1,0 +1,42 @@
+= Issues
+
+. `Dev Containers Developer: Show All Logs...`
+. `Dev Containers: Show Container Log`
+. `Dev Containers: Show Previous Log`
+
+----
+[112762 ms] Start: Run in container: # Test for /home/vscode/.gitconfig and git
+[112764 ms] 
+[112764 ms] 
+[112764 ms] Start: Run in container: # Copy /Users/hgh/.gitconfig to /home/vscode/.gitconfig
+[112765 ms] 
+[112765 ms] /bin/sh: 121: cannot create /home/vscode/.gitconfig: Permission denied
+[112765 ms] Exit code 2
+[112993 ms] Command in container failed: # Copy /Users/hgh/.gitconfig to /home/vscode/.gitconfig
+(dd iflag=fullblock bs=8192 count=0 2>/dev/null; dd iflag=fullblock bs=333 count=1 2>/dev/null) >>'/home/vscode/.gitconfig'
+----
+
+
+host::
+----
+cat /Users/hgh/.gitconfig
+─────┬──────────────────────────────────────────────────────────────────────────
+     │ File: /Users/hgh/.gitconfig
+─────┼──────────────────────────────────────────────────────────────────────────
+   1 │ [filter "lfs"]
+   2 │     smudge = git-lfs smudge -- %f
+   3 │     process = git-lfs filter-process
+   4 │     required = true
+   5 │     clean = git-lfs clean -- %f
+   6 │ [user]
+   7 │     name = ***
+   8 │     email = ***
+   9 │ [credential]
+  10 │     helper =
+  11 │     helper = /usr/local/share/gcm-core/git-credential-manager
+  12 │ [credential "https://dev.azure.com"]
+  13 │     useHttpPath = true
+─────┴──────────────────────────────────────────────────────────────────────────
+
+
+----

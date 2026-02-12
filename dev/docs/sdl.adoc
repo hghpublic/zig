@@ -1,0 +1,23 @@
+= SDL
+
+----
+sdl2-config --cflags --static-libs
+
+-I/usr/include/SDL2 -D_REENTRANT
+/usr/lib/aarch64-linux-gnu/libSDL2.a -lm -lasound -lm -ldl -lpthread -lpulse -pthread -lsamplerate -lX11 -lXext -lXcursor -lXi -lXfixes -lXrandr -lXss -ldrm -lgbm -lwayland-egl -lwayland-client -lwayland-cursor -lxkbcommon -ldecor-0 -lpthread
+----
+
+
+----
+pkg-config --static --cflags --libs /usr/lib/aarch64-linux-gnu/pkgconfig/sdl2.pc
+
+❯ pkg-config --static --cflags --libs /usr/lib/aarch64-linux-gnu/pkgconfig/sdl2.pc
+-I/usr/include/SDL2 -D_REENTRANT -lSDL2 -lm -lasound -lm -ldl -lpthread -lpulse -pthread -lsamplerate -lX11 -lXext -lXcursor -lXi -lXfixes -lXrandr -lXss -ldrm -lgbm -lwayland-egl -lwayland-client -lwayland-cursor -lxkbcommon -ldecor-0 -lpthread 
+----
+
+
+
+----
+❯ pkg-config --static --libs sdl2
+-lSDL2 -lm -lasound -lm -ldl -lpthread -lpulse -pthread -lsamplerate -lX11 -lXext -lXcursor -lXi -lXfixes -lXrandr -lXss -ldrm -lgbm -lwayland-egl -lwayland-client -lwayland-cursor -lxkbcommon -ldecor-0 -lpthread 
+----
