@@ -1,0 +1,9 @@
+# macos
+.DS_Store
+
+# cmake
+/build/
+
+# zig
+.zig-cache/
+/zig-out/
