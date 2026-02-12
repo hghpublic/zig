@@ -1,0 +1,105 @@
+= Qix Requirements
+:toc:
+:sectnums:
+
+== Goal
+Implement a playable single-player *Qix-style* arcade game in Zig using SDL2.
+
+The player claims area on a rectangular board while avoiding enemies.
+The round ends in a win when enough area is captured, or a loss when all lives are lost.
+
+== Scope
+
+=== In Scope (MVP)
+- One playable level with repeatable rounds.
+- Keyboard-only controls.
+- Area capture by drawing trails from border to border.
+- One Qix enemy moving inside unclaimed area.
+- At least one border enemy (Sparx-like) moving along captured border.
+- Lives, score, and win/lose conditions.
+- Fixed-size 2D board rendered with simple primitives.
+
+=== Out of Scope (MVP)
+- Audio, particles, advanced visual effects.
+- Multiple enemy types beyond minimum above.
+- Menus, settings screen, save/load, online features.
+
+== Gameplay Requirements
+
+=== Board and Territory
+- The playfield is a closed rectangle.
+- The outer border starts as *safe/captured* territory.
+- The interior starts as *uncaptured* territory.
+- A closed capture operation converts a region of uncaptured space to captured territory.
+
+=== Player
+- Player starts on the captured border.
+- Player can move in four directions.
+- Movement speed is constant and frame-rate independent.
+- Player has a finite number of lives (default: 3).
+
+=== Drawing and Capture
+- On captured territory, movement is safe and does not create a trail.
+- Leaving captured territory starts a *trail* through uncaptured space.
+- Returning to captured territory closes the trail and triggers region fill.
+- The fill algorithm keeps the region *without* the Qix enemy and captures the other closed region.
+- Trail self-intersection is invalid and causes player death.
+
+=== Enemies and Collision
+- Qix enemy moves continuously inside uncaptured space and bounces off boundaries.
+- Border enemy moves along captured border paths.
+- Player dies if:
+* Qix touches the active trail.
+* Player directly collides with Qix.
+* Player collides with a border enemy.
+- On death, the active trail is discarded and player respawns on border.
+
+=== Round Completion
+- Win condition: captured area percentage reaches target threshold (default: 75%).
+- Lose condition: lives reach zero.
+- After win or lose, game returns to a restartable round state.
+
+== Input Requirements
+- Arrow keys control movement.
+- Enter confirms restart on end-of-round screens.
+- Close-window event exits cleanly.
+
+== Scoring Requirements
+- Score increases when area is captured.
+- Captured area contributes proportionally to points.
+- Optional multiplier by capture risk/speed is not required for MVP.
+- Current score and captured percentage are visible during play.
+
+== UI/HUD Requirements
+- Display: lives, score, captured percentage, and target percentage.
+- Distinct colors for:
+* Captured territory
+* Uncaptured territory
+* Player trail
+* Player
+* Enemies
+- End-of-round text for win/lose and restart hint.
+
+== Technical Requirements
+- Language: Zig.
+- Rendering/input: SDL2.
+- Main loop phases: input -> update -> draw -> present.
+- Use deterministic update step (fixed timestep preferred).
+- Keep gameplay logic decoupled from rendering code.
+- Build and run via `zig build run`.
+
+== Performance and Stability
+- Target smooth gameplay at 60 FPS on a typical developer machine.
+- No unbounded memory growth during a round.
+- Graceful error handling for SDL init/window/renderer failures.
+- Deterministic restart: new round resets all gameplay state.
+
+== Acceptance Criteria (MVP)
+- Player can move on border and create a trail through uncaptured area.
+- Closing a trail captures territory correctly and updates percentage.
+- Qix and border enemy are active and can cause death.
+- Lives decrement on death; round ends at zero lives.
+- Round wins when capture threshold is met.
+- HUD displays live values for score, lives, and captured percentage.
+- App exits cleanly on window close.
+
